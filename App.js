@@ -1,20 +1,63 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+// import 'react-native-gesture-handler';
 
-export default function App() {
+// import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import AppStack from './src/components/AppStack';
+import DialApp from './src/demostration/DialApp';
+
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  SectionList,
+  StatusBar,
+  Image,
+  Button,
+  TouchableOpacity,
+} from 'react-native';
+
+import Tabs from './src/components/Tabs';
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer style={styles.container}>
+      {/* <Stacks /> */}
+      <Tabs />
+    </NavigationContainer>
+    // <SafeAreaView style={styles.containerWrapper}>
+    //   <View style={styles.container}>
+    //     <LanguageSelectionModal />
+    //   </View>
+    // </SafeAreaView>
+    // <SafeAreaView style={styles.containerWrapper}>
+    //   {/* <ThemeModalToggle /> */}
+    //   <DialApp />
+    // </SafeAreaView>
+
+    // <>
+    //   {/* //   <CreateScreen /> */}
+    //   <ThemeMainModal />
+    //   {/* <FlatListAutoScroll /> */}
+    // </>
   );
-}
+};
 
 const styles = StyleSheet.create({
+  containerWrapper: {
+    flex: 1,
+  },
+
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    marginTop: StatusBar.currentHeight || 0,
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'green',
+    // height: '100%',
+    // width: '100%',
   },
 });
+
+export default App;
